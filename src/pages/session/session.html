@@ -1,0 +1,46 @@
+<ion-header>
+        <ion-navbar>
+          <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+              <ion-icon name="ios-menu"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-title>{{name}}</ion-title>
+          <ion-buttons end>
+          </ion-buttons>
+        </ion-navbar>
+      </ion-header>
+<ion-content>
+    <h2>{{name}}</h2>
+    <hr/>
+    <h4>{{location}}</h4>
+    <p>Added by {{memberName}} @ {{date}}</p>
+    <ion-item>
+        <div *ngIf="schedule">
+            <p>Schedule: {{schedule}}</p>
+        </div>
+    </ion-item>
+    <p>Schedule: {{schedule}}</p>
+    <ion-item>
+        <div *ngIf="website">
+            <p>Website: </p>
+            <a href="{{website}}">
+                {{website}}
+            </a>
+        </div>
+    </ion-item>
+    <ion-item>
+        <div *ngIf="telephone">
+            <p>Telephone: </p>
+            <a href="{{telephone}}">
+                {{telephone}}
+            </a>
+        </div>
+    </ion-item>
+    <h3>Comments</h3>
+    <ion-item *ngFor="let comment of comments">
+        <h3>{{comment.subject}}</h3>
+        <p>{{comment.content}}</p>
+        <p>Posted by {{comment.member.name}} @ {{comment.date}}</p>
+    </ion-item>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button menuToggle ion-button icon-only style="color:white">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Tunes</ion-title>
+      <ion-buttons end>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+        <div>
+            <h3>Newest Tunes</h3>
+            <ion-item *ngFor="let tune of newTunes">
+                <a (click)="goToTune(tune.tune.id)">{{tune.tune.name}}</a>
+            </ion-item>
+        </div>
+        <hr/>
+        <div>
+            <h3>Popular Tunes</h3>
+            <ion-item *ngFor="let tune of popularTunes">
+                <a (click)="goToTune(tune.tune.id)">{{tune.name}}</a>
+            </ion-item>
+        </div>
+        <div>
+            <h3>Tune sets</h3>
+            <ion-item *ngFor="let set of tuneSets">
+                <a href="{{set.url}}">{{set.name}}</a>
+            </ion-item>
+        </div>
+    </ion-list>
+  </ion-content>

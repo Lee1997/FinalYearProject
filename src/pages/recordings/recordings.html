@@ -1,0 +1,23 @@
+<ion-header>
+        <ion-navbar>
+          <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+              <ion-icon name="ios-menu"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-title>Recordings</ion-title>
+          <ion-buttons end>
+          </ion-buttons>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content>
+        <ion-list>
+            <div>
+                <h3>Newest Recordings</h3>
+                <ion-item *ngFor="let recording of newRecordings">
+                    <a (click)="goToRecording(recording)">{{recording.name}}</a>
+                </ion-item>
+            </div>
+        </ion-list>
+      </ion-content>
