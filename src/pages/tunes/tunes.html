@@ -23,7 +23,7 @@
         <div>
             <h3>Popular Tunes</h3>
             <ion-item *ngFor="let tune of popularTunes">
-                <a (click)="goToTune(tune.tune.id)">{{tune.name}}</a>
+                <a (click)="goToTune(tune.id)">{{tune.name}}</a>
             </ion-item>
         </div>
         <div>
