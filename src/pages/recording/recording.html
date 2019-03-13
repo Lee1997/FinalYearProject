@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+                <ion-icon name="ios-menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{recordingName}}</ion-title>
+        <ion-buttons end>
+        </ion-buttons>
+    </ion-navbar>
+    <script src="https://use.fontawesome.com/491e16d960.js"></script>
+    <link href="https://use.fontawesome.com/491e16d960.css" media="all" rel="stylesheet">
+    <link src="abcjs-midi.css" media="all" rel="stylesheet" type="text/css">
+    <link src="tune.css" media="all" rel="stylesheet" type="text/css">
+</ion-header>
+<ion-content>
+    <ion-item>
+        <h2>{{recordingName}}</h2>
+        <h3>
+            <a href="{{recordingArtistUrl}}">
+                By {{recordingArtistName}}<h6>(External Link)</h6>
+            </a>
+        </h3>
+    </ion-item>
+    <accordion title="Tracks" class="holder" startOpen="true">
+        <ion-item *ngFor="let track of tracks">
+            <h2>Track {{tracks.indexOf(track) + 1}}: </h2>
+            <ion-item *ngFor="let tune of track.tunes">
+                <div *ngIf="tune.id; else elseBlock">
+                    <a (click)="goToTune(tune.id)">
+                        {{tune.name}}
+                    </a>
+                </div>
+                <ng-template #elseBlock>
+                    <h2>
+                        {{tune.name}}
+                    </h2>
+                </ng-template>
+            </ion-item>
+            <hr />
+        </ion-item>
+    </accordion>
+    <!-- <ion-item>
+
+        <p>Tracks:</p>
+        <ion-item *ngFor="let track of tracks">
+            <ion-card>
+                <p>{{tracks.indexOf(track)}}</p>
+                <ion-item *ngFor="let tune of track.tunes">
+                    <div *ngIf="tune.id; else elseBlock">
+                        <a (click)="navigateToTune(tune.id);"> {{tune.name}}</a>
+                    </div>
+                    <ng-template #elseBlock>
+                        <p>
+                            {{tune.name}}
+                        </p>
+                    </ng-template>
+
+                </ion-item>
+            </ion-card>
+        </ion-item>
+    </ion-item> -->
+</ion-content>

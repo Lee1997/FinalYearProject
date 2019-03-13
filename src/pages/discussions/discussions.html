@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button menuToggle ion-button icon-only style="color:white">
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="red">Discussions</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <accordion title="New Discussions" startOpen="true">
+      <ion-item *ngFor="let discussion of newDiscussions">
+        <a (click)="goToDiscussion(discussion.id)">{{discussion.name}}</a>
+      </ion-item>
+    </accordion>
+  </ion-list>
+</ion-content>

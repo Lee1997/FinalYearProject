@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color: white">
+                <ion-icon name="ios-menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title class="header-bar">Search</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <accordion title="Search" startOpen="true">
+            <input [attr.id]="searchBar" type="text" [(ngModel)]="searchQuery" ion-input />
+            <button (click)="search(searchQuery)" ion-button>Search</button>
+        </accordion>
+        <accordion title="Tunes" startOpen="true">
+            <ion-item *ngFor="let tune of tunes">
+                <a (click)="goToTune(tune['id'])">
+                    {{tune['name']}}
+                </a>
+            </ion-item>
+        </accordion>
+        <accordion title="Members" (click)="gatherMembers(searchQuery)">
+            <ion-item *ngFor="let member of members">
+                <a (click)="goToMember(member['id'])">
+                    {{member['name']}}
+                </a>
+            </ion-item>
+        </accordion>
+        <accordion title="Recordings" (click)="gatherRecordings(searchQuery)">
+            <ion-item *ngFor="let recording of recordings">
+                <a (click)="goToRecording(recording['id'])">
+                    {{recording['name']}}
+                </a>
+            </ion-item>
+        </accordion>
+        <accordion title="Sessions" (click)="gatherSessions(searchQuery)">
+            <ion-item *ngFor="let session of sessions">
+                <a (click)="goToSession(session['id'])">
+                    {{session['venue'].name}}
+                </a>
+            </ion-item>
+        </accordion>
+        <accordion title="Discussions" (click)="gatherDiscussions(searchQuery)">
+            <ion-item *ngFor="let discussion of discussions">
+                <a (click)="goToDiscussion(discussion['id'])">
+                    {{discussion['name']}}
+                </a>
+            </ion-item>
+        </accordion>
+    </ion-list>
+</ion-content>

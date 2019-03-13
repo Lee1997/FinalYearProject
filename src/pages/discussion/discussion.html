@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color: red">
+                <ion-icon name="ios_menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title class="header-bar">{{name}}</ion-title>
+        <ion-buttons end>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <accordion title="Comments" startOpen="true">
+        <ion-card *ngFor="let comment of comments">
+            <ion-item>
+                <h2 text-wrap>{{comment.subject}}</h2>
+                <hr/>
+                <h3 text-wrap>{{comment.content}}</h3>
+                <a text-wrap (click)="goToMember(comment.member.id)" style="font-size: 12px;">
+                    Posted by {{comment.member.name}} @ {{comment.date}}
+                </a>
+            </ion-item>
+        </ion-card>
+    </accordion>
+</ion-content>

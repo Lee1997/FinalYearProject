@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button menuToggle ion-button icon-only style="color:white">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="header-bar">{{name}}</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+  <script src="https://use.fontawesome.com/491e16d960.js"></script>
+  <link href="https://use.fontawesome.com/491e16d960.css" media="all" rel="stylesheet">
+  <link src="abcjs-midi.css" media="all" rel="stylesheet" type="text/css">
+  <link src="tune.css" media="all" rel="stylesheet" type="text/css">
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item class="settingBox">
+      <ion-card class="infoHolderOuter">
+        <div class="infoHolderInner">
+          <a (click)="goToMember(memberId)">Created By: {{member}}</a>
+          <hr />
+          <p>Date posted: {{date}}</p>
+          <hr />
+          <p>Tune Type: {{type}}</p>
+          <hr />
+          <p>Tunebooks: {{tuneBookCount}}</p>
+          <hr />
+          <a (click)="goToTuneRecordings(tuneId)">Recordings: {{recordingCount}}</a>
+        </div>
+      </ion-card>
+    </ion-item>
+    <ion-item class="settingBox">
+      <div *ngIf="multipleSettings">
+        <accordion title="Functions">
+          <div>
+            <p>Compare settings</p>
+            <ion-item>
+              <ion-select id="leftOptionSelect" ng-model="test" interface="action-sheet" placeholder="Left Setting">
+                {{leftOptions[0]}}
+                <ion-option *ngFor="let option of leftOptions" (ionSelect)="setLeftSetting(option)">
+                  {{option}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-select interface="action-sheet" placeholder="Right Setting" okText="Select" cancelText="Cancel">
+                {{rightOptions[0]}}
+                <ion-option *ngFor="let option of rightOptions" (ionSelect)="setRightSetting(option)">
+                  {{option}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <button ion-button (click)="compareSettings()">Compare Settings</button>
+        </accordion>
+      </div>
+    </ion-item>
+    <ion-item *ngFor="let setting of settings" class="settingBox" (focus)="renderAllSettings()">
+      <accordion title="{{name}} Setting: {{settings.indexOf(setting)}}" style="align-items: center">
+        <ion-card style="padding: 5px;">
+          <div [attr.id]="'abc' + settings.indexOf(setting)"  text-wrap>
+            X: {{settings.indexOf(setting)}} <br>
+            T: {{name}} <br>
+            R: {{type}} <br>
+            M: {{getMeasure(type)}} <br>
+            L: 1/8 <br>
+            K: {{setting.key.substring(0, 4)}} <br>
+            {{formatAbc(setting.abc, true)}}
+          </div>
+          <div [attr.id]="'notation' + settings.indexOf(setting)" style="zoom: 0.7;" class="paper"></div>
+          <div [attr.id]="'midi' + settings.indexOf(setting)"></div>
+          <div [attr.id]="'midi-download' + settings.indexOf(setting)"></div>
+          <div [attr.id]="'warnings' + settings.indexOf(setting)"></div>
+          <div [attr.id]="'settingControlsBox' + settings.indexOf(setting)" style="width: 100%; display:none;">
+              <button ion-button (click)="zoomIn(settings.indexOf(setting));" style="">Zoom In</button>
+              <button ion-button (click)="zoomOut(settings.indexOf(setting));">Zoom Out</button>
+            </div>
+          <button ion-button [attr.id]="'notationButton' + settings.indexOf(setting)" (click)="renderNotes(settings.indexOf(setting), setting.abc);">Show
+            Notation</button>
+        </ion-card>
+      </accordion>
+    </ion-item>
+    <ion-item class="settingBox">
+      <accordion title="Comments" startOpen="true">
+        <ion-item *ngFor="let comment of comments">
+          <ion-item text-wrap style="border: 2px solid black; padding: 5px;">
+            <div *ngIf="comment.subject" style="padding: 0; margin: 0;">
+              <h2>{{comment.subject}}</h2>
+              <hr />
+            </div>
+            <p>
+              {{comment.content}}
+            </p>
+            <a (click)="goToMember(comment.member.id)"><h5>(Posted by: {{comment.member.name}})</h5></a>
+          </ion-item>
+        </ion-item>
+      </accordion>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{name}}</ion-title>
+        <ion-buttons end>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item class="settingBox" style="padding: 0px; margin: 0px;">
+        <ion-card class="infoHolderOuter">
+            <div class="infoHolderInner">
+                <h3>{{tunebooksCount}} tunes in tunebook</h3>
+                <h3>{{tripsCount}} trips</h3>
+                <h3>{{setsCount}} sets</h3>
+                <h3>{{settingsCount}} tune settings</h3>
+                <h3>{{recordingsCount}} recordings</h3>
+                <h3>{{sessionsCount}} sessions</h3>
+                <h3>{{eventsCount}} events</h3>
+                <h3>{{discussionsCount}} discussions</h3>
+                <h3>{{commentsCount}} comments</h3>
+            </div>
+        </ion-card>
+    </ion-item>
+    <accordion title="Bio" *ngIf="bio">
+        <ion-item text-wrap>
+            {{bio}}
+        </ion-item>
+    </accordion>
+    <accordion title="Tunebook ({{tunebooksCount}} Tunes)" *ngIf="tunebooksCount != 0">
+        <button ion-button (click)="saveTunebook(memberId)">Save Tunebook</button>
+        <ion-item *ngFor="let tune of tunebookTunes">
+            <a (click)="goToTune(tune.id)" style="width: 100%;">
+                {{tune.name}}<h5>({{tune.type}})</h5>
+            </a>
+        </ion-item>
+    </accordion>
+    <accordion title="Tune Settings ({{settingsCount}} Settings)" *ngIf="settingsCount != 0">
+        <ion-item *ngFor="let setting of settings">
+            <a (click)="goToTune(setting.tune.id)">
+                {{setting.tune.name}}
+            </a>
+        </ion-item>
+    </accordion>
+    <accordion title="Discussions ({{discussionsCount}} Discussions)" *ngIf="discussionsCount != 0">
+        <ion-item *ngFor="let discussion of discussions">
+            <a (click)="goToDiscussion(discussion.id)">
+                {{discussion.name}}
+            </a>
+        </ion-item>
+    </accordion>
+</ion-content>

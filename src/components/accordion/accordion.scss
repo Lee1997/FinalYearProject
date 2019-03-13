@@ -1,0 +1,17 @@
+accordion {
+
+    .card-header{
+        background-color: $primary-color;
+        color: #fff;
+    }
+    .card-content {
+        padding: 0px 0px; 
+        max-height: 0px;
+    }
+    ion-item{
+        background-color: $primary-color;
+    }
+    button{
+        color: $primary-color;
+    }
+}

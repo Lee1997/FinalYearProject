@@ -1,0 +1,96 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+body {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    }
+
+$primary-color-dark:   #388E3C;
+$primary-color:        #4CAF50;
+$primary-color-light:  #C8E6C9;
+$primary-color-text:   #FFFFFF;
+$accent-color:         rgb(35, 22, 214);
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #d6d5d5;
+
+ion-title {
+    background-color: $primary-color-dark;
+    color: $primary-color-text;
+}
+
+.bar-button-default-ios {
+    color: white;
+}
+
+.toolbar-title-ios {
+    color: $primary-color-text;
+}
+
+.scroll-content{
+    background-color: $divider-color;
+}
+
+ion-item > .body{
+    background-color: $divider-color !important;
+}
+
+ion-card{
+    border-radius: 15px 15px 0px 0px !important;
+}
+
+ion-icon {
+    color: black !important;
+}
+
+a {
+    color: $accent-color;
+    // text-decoration: underline;
+}
+
+.label-md {
+    margin: 13px 8px 13px 0;
+  }
+  
+  ion-label {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .settingBox {
+    background-color: $divider-color;
+  }
+
+  .infoHolderOuter {
+    background-color: $primary-color;
+    padding: 16px;
+  }
+
+  .infoHolderInner {
+    background-color: white;
+    padding: 5px;
+  }

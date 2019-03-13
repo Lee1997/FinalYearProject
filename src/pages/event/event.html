@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+                <ion-icon name="ios-menu"></ion-icon>
+            </button>
+            </ion-buttons>
+            <ion-title>{{name}}</ion-title>
+            <ion-buttons end>
+        </ion-buttons>   
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <h2>{{name}}</h2>
+    <hr/>
+    <h4>{{dateStart}}-{{dateEnd}}</h4>
+    <p>Added by {{memberName}} @ {{postDate}}</p>
+    <ion-item>
+        <ion-card style="height: 150px;">
+            <p>Address: {{address}}</p>
+        </ion-card>
+    </ion-item>
+</ion-content>
