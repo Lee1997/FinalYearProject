@@ -10,13 +10,14 @@ export class AbcFormatter{
         " ": "",
         "\\:\\|": ":|\n",
         "&quot;": "\"",
-        "|:": ""
+        "|:": "",
+        "!": "|",
+        "&#039;": "'"
     };
 
     htmlMappings = {
         "&quot;": "\"",
         "&gt;": ">",
-        "!": "  "
     }
 
     format(abc, isHtml = false){

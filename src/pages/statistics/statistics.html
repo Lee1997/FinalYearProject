@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle ion-button icon-only style="color:white">
+                <ion-icon name="ios-menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Statistics</ion-title>
+        <ion-buttons end>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <accordion title="Configuration" startOpen="true">
+        <ion-item>
+            <ion-select placeholder="Pie">
+                <ion-select-option >Pie</ion-select-option>
+                <ion-select-option >Bar</ion-select-option>
+                <ion-select-option >Line</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </accordion>
+    <accordion title="Tune Stats: Type">
+        <canvas #typesChart style="width: 100%; height: 500px;">
+            {{typeChart}}
+        </canvas>
+    </accordion>
+    <accordion title="Tunes Stats: Mode">
+        <canvas #modesChart style="width: 100%; height: 500px;">
+            {{modeChart}}
+        </canvas>
+    </accordion>
+    <accordion title="Tune Stats: Meter">
+        <canvas #metersChart style="width: 100%; height: 500px;">
+            {{meterChart}}
+        </canvas>
+    </accordion>
+
+</ion-content>

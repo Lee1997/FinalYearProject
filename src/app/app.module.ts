@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { ChartsModule } from 'ng2-charts';
 import { MyApp } from './app.component';
 import { TunesPage } from '../pages/tunes/tunes';
 import { TunePage } from '../pages/tune/tune';
@@ -23,6 +23,7 @@ import { ILogger } from '../utilities/Logger';
 import { MemberPage } from '../pages/member/member';
 import { TuneRecordingsPage } from '../pages/tune-recordings/tune-recordings';
 import { SearchPage } from '../pages/search/search';
+import { StatisticsPage } from '../pages/statistics/statistics';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,14 @@ import { SearchPage } from '../pages/search/search';
     TuneRecordingsPage,
     AccordionComponent,
     MemberPage,
-    SearchPage
+    SearchPage,
+    StatisticsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp, {mode: 'ios'})
+    IonicModule.forRoot(MyApp, {mode: 'ios'}),
+    ChartsModule
     ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,7 +68,8 @@ import { SearchPage } from '../pages/search/search';
     TunePage,
     AccordionComponent,
     MemberPage,
-    SearchPage
+    SearchPage,
+    StatisticsPage
   ],
   providers: [
     StatusBar,

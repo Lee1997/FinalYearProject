@@ -50,13 +50,6 @@ export class TunePage {
         this.strFormatter = new StringFormatter();
     }
 
-    renderAllSettings() {
-        alert();
-        for (var i = 0; i < this.settings.length; i++) {
-            this.renderNotes(i, this.settings[i].abc)
-        }
-    }
-
     ionViewCanEnter() {
         this.getInformation();
     }
@@ -64,7 +57,8 @@ export class TunePage {
     ngOnInit() {
     }
 
-    renderNotes(settingIndex, abc) {
+    renderNotes(settingIndex) {
+        var abc = document.getElementById('abc' + settingIndex).innerText;
         var notationId = 'notation' + settingIndex;
 
         abc = this.formatAbc(abc);
@@ -139,12 +133,12 @@ export class TunePage {
     getMeasure(type) {
         switch (type) {
             case "jig": return "6/8";
-            case "slipjig": return "9/8";
+            case "slip jig": return "9/8";
             case "reel": case "hornpipe": case "barndance": case "strathspey": return "4/4";
             case "polka": return "2/4";
             case "slide": return "12/8";
             case "waltz": case "mazurka": return "3/4";
-            case "threetwo": return "3/2";
+            case "three-two": return "3/2";
         }
     }
 

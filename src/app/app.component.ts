@@ -11,6 +11,7 @@ import { EventsPage } from '../pages/events/events'
 import { DiscussionsPage } from '../pages/discussions/discussions'
 import { TunebooksPage } from '../pages/tunebooks/tunebooks';
 import { SearchPage } from '../pages/search/search';
+import { StatisticsPage } from '../pages/statistics/statistics';
 
 @Component({
   templateUrl: 'app.html',
@@ -19,7 +20,7 @@ import { SearchPage } from '../pages/search/search';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SearchPage;
+  rootPage: any = StatisticsPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -34,6 +35,7 @@ export class MyApp {
       { title: 'Events', component: EventsPage },
       { title: 'Discussions', component: DiscussionsPage },
       { title: 'Saved TuneBooks', component: TunebooksPage },
+      { title: "Statistics", component: StatisticsPage},
       { title: 'Search', component: SearchPage }
     ];
   }

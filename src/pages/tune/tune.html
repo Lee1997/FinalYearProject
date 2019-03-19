@@ -77,8 +77,9 @@
               <button ion-button (click)="zoomIn(settings.indexOf(setting));" style="">Zoom In</button>
               <button ion-button (click)="zoomOut(settings.indexOf(setting));">Zoom Out</button>
             </div>
-          <button ion-button [attr.id]="'notationButton' + settings.indexOf(setting)" (click)="renderNotes(settings.indexOf(setting), setting.abc);">Show
-            Notation</button>
+          <button ion-button [attr.id]="'notationButton' + settings.indexOf(setting)" (click)="renderNotes(settings.indexOf(setting));">
+            Show Notation
+          </button>
         </ion-card>
       </accordion>
     </ion-item>
