@@ -11,16 +11,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <accordion title="Configuration" startOpen="true">
-        <ion-item>
-            <ion-select placeholder="Pie">
-                <ion-select-option >Pie</ion-select-option>
-                <ion-select-option >Bar</ion-select-option>
-                <ion-select-option >Line</ion-select-option>
-            </ion-select>
-        </ion-item>
-    </accordion>
-    <accordion title="Tune Stats: Type">
+    <accordion title="Tune Stats: Type" startOpen="true">
         <canvas #typesChart style="width: 100%; height: 500px;">
             {{typeChart}}
         </canvas>

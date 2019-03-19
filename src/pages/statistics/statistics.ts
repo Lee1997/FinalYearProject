@@ -25,12 +25,10 @@ export class StatisticsPage {
     @ViewChild('metersChart') meterChartRef: ElementRef;
     public meterChart: Chart;
 
-    public chart_types: Array<any> = [];
 
     constructor(public navCtrl: NavController, private theSessionService: TheSessionService) {
         this.fillDataFromFile();
         this.chart_colors = this.fillColorsData()
-        this.fillChartTypes();
     }
 
     fillDataFromFile() {
@@ -186,12 +184,5 @@ export class StatisticsPage {
             "#bff999",
             "#00ffff"
         ];
-    }
-
-    fillChartTypes() {
-        this.chart_types.push(
-            { value: "pie" },
-            { value: "bar" }
-        )
     }
 }
