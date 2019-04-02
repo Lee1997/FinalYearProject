@@ -7,11 +7,11 @@ export class AbcFormatter{
     constructor(){ this.l = new Logger(); }
 
     baseMappings = {
-        " ": "",
-        "\\:\\|": ":|\n",
+        // " ": "",
+        // "\\:\\|": ":|\n",
         "&quot;": "\"",
-        "|:": "",
-        "!": "|",
+        // "|:": "",
+        "!": "!\n",
         "&#039;": "'"
     };
 

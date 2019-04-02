@@ -20,7 +20,7 @@ import { StatisticsPage } from '../pages/statistics/statistics';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = StatisticsPage;
+  rootPage: any = TunesPage;
 
   pages: Array<{title: string, component: any}>;
 

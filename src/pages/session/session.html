@@ -11,43 +11,44 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <h2>{{name}}</h2>
-    <hr />
-    <h4>{{location}}</h4>
-    <p>Added by {{memberName}} @ {{date}}</p>
-    <ion-item>
-        <div *ngIf="schedule">
-            <p>Schedule: {{schedule}}</p>
-        </div>
-    </ion-item>
-    <ion-item>
-        <div *ngIf="website">
-            <p>Website: </p>
-            <a href="{{website}}">
-                {{website}}
-            </a>
-        </div>
-    </ion-item>
-    <ion-item>
-        <div *ngIf="telephone">
-            <p>Telephone: </p>
-            <a href="{{telephone}}">
-                {{telephone}}
-            </a>
-        </div>
-    </ion-item>
-    <ion-item>
-        <div *ngIf="location_lat">
-            <p>Location: </p>
-            <a href="{{getMapsLink()}}">
-                Google Maps Link
-            </a>
-        </div>
-    </ion-item>
-    <h3>Comments</h3>
-    <ion-item *ngFor="let comment of comments">
-        <h3>{{comment.subject}}</h3>
-        <p>{{comment.content}}</p>
-        <p>Posted by {{comment.member.name}} @ {{comment.date}}</p>
-    </ion-item>
+    <accordion title="{{name}}" startOpen="true">
+        <h4>{{location}}</h4>
+        <p>Added by {{memberName}} @ {{date}}</p>
+        <ion-item>
+            <div *ngIf="schedule">
+                <p>Schedule: {{schedule}}</p>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div *ngIf="website">
+                <p>Website: </p>
+                <a href="{{website}}">
+                    {{website}}
+                </a>
+            </div>
+        </ion-item>
+        <ion-item *ngIf="telephone">
+            <div>
+                <p>Telephone: </p>
+                <a href="{{telephone}}">
+                    {{telephone}}
+                </a>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div *ngIf="location_lat">
+                <p>Location: </p>
+                <a href="{{getMapsLink()}}">
+                    Google Maps Link
+                </a>
+            </div>
+        </ion-item>
+    </accordion>
+    <accordion title="Comments" startOpen="true">
+        <ion-item *ngFor="let comment of comments">
+            <h3 text-wrap>{{comment.subject}}</h3>
+            <p text-wrap>{{comment.content}}</p>
+            <p>Posted by {{comment.member.name}} @ {{comment.date}}</p>
+        </ion-item>
+    </accordion>
 </ion-content>

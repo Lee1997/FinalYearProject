@@ -13,11 +13,10 @@
   
   <ion-content>
     <ion-list>
-        <div>
-            <h3>Newest Sessions</h3>
+        <accordion title="Newest Sessions" startOpen="true">
             <ion-item *ngFor="let session of newSessions">
                 <a (click)="goToSession(session)">{{session.venue.name}}</a>
             </ion-item>
-        </div>
+          </accordion>
     </ion-list>
   </ion-content>

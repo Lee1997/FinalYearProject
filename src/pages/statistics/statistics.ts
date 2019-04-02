@@ -25,7 +25,6 @@ export class StatisticsPage {
     @ViewChild('metersChart') meterChartRef: ElementRef;
     public meterChart: Chart;
 
-
     constructor(public navCtrl: NavController, private theSessionService: TheSessionService) {
         this.fillDataFromFile();
         this.chart_colors = this.fillColorsData()
