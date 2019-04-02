@@ -7,12 +7,12 @@ export class AbcStringComparer{
         this.l = new Logger();
     }
 
-    compareAbcStrings(s1, s2) {
-        var longer = s1;
-        var shorter = s2;
-        if (s1.length < s2.length) {
-          longer = s2;
-          shorter = s1;
+    compareAbcStrings(abc1, abc2) {
+        var longer = abc1;
+        var shorter = abc2;
+        if (abc1.length < abc2.length) {
+          longer = abc2;
+          shorter = abc1;
         }
         var longerLength = longer.length;
         if (longerLength === 0) {
@@ -21,30 +21,30 @@ export class AbcStringComparer{
         return (longerLength - this.editDistance(longer, shorter)) / parseFloat(longerLength);
       }
 
-      editDistance(s1, s2) {
-        s1 = s1.toLowerCase();
-        s2 = s2.toLowerCase();
+      editDistance(abc1, abc2) {
+        abc1 = abc1.toLowerCase();
+        abc2 = abc2.toLowerCase();
       
         var costs = new Array();
-        for (var i = 0; i <= s1.length; i++) {
+        for (var i = 0; i <= abc1.length; i++) {
           var lastValue = i;
-          for (var j = 0; j <= s2.length; j++) {
+          for (var j = 0; j <= abc2.length; j++) {
             if (i == 0)
               costs[j] = j;
             else {
               if (j > 0) {
-                var newValue = costs[j - 1];
-                if (s1.charAt(i - 1) != s2.charAt(j - 1))
-                  newValue = Math.min(Math.min(newValue, lastValue),
+                var adjustedNote = costs[j - 1];
+                if (abc1.charAt(i - 1) != abc2.charAt(j - 1))
+                  adjustedNote = Math.min(Math.min(adjustedNote, lastValue),
                     costs[j]) + 1;
                 costs[j - 1] = lastValue;
-                lastValue = newValue;
+                lastValue = adjustedNote;
               }
             }
           }
           if (i > 0)
-            costs[s2.length] = lastValue;
+            costs[abc2.length] = lastValue;
         }
-        return costs[s2.length];
+        return costs[abc2.length];
       }
 }

@@ -10,8 +10,8 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <accordion title="Search" startOpen="true">
-            <input [attr.id]="searchBar" type="text" [(ngModel)]="searchQuery" ion-input />
+        <accordion title="Search" startOpen="true" style="display: flex; justify-content: left;">
+            <input [attr.id]="searchBar" type="text" placeholder="Search..." [(ngModel)]="searchQuery" ion-input />
             <button (click)="search(searchQuery)" ion-button>Search</button>
         </accordion>
         <accordion title="Tunes" startOpen="true">
